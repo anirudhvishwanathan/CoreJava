@@ -1,5 +1,7 @@
 package com.training;
 
+import com.training.myexception.RangeCheckException;
+
 public class Customer {
 	
 	private int customerId;
@@ -15,15 +17,20 @@ public class Customer {
 	
 	
 	
-	
-	public Customer(int customerId, String customerName, String email, long handPhone) {
+//declare rule	
+	public Customer(int customerId, String customerName, String email, long handPhone) throws RangeCheckException  {
 		super();
 		this.customerId = customerId;
 		this.customerName = customerName;
 		this.email = email;
+		if(handPhone>9 || handPhone<1) {
+			 throw new RangeCheckException(handPhone);
+		}
+		else
+		{
 		this.handPhone = handPhone;
 	}
-
+}
 
 
 
@@ -48,9 +55,26 @@ public class Customer {
 	public long getHandPhone() {
 		return handPhone;
 	}
+
+	
+//handle rule	
 	public void setHandPhone(long handPhone) {
+	if(handPhone>9 || handPhone<1)
+	{
+		try {
+			
+			throw new RangeCheckException(handPhone);	
+		} catch (RangeCheckException e)
+		{
+			System.out.println(e.getMessage());
+		}
+	}
+	else
+	{
+		
 		this.handPhone = handPhone;
 	}
+}
 	
     public String showCustomer(){
     	

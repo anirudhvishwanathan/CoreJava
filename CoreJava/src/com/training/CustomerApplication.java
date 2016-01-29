@@ -12,7 +12,7 @@ public class CustomerApplication {
 		cust1.setEmail("ramesh@gmail.com");
         cust1.setHandPhone(92774162);
         
-        Customer cust2 = new Customer(146, "Raj", "raj@abc.com", 9266172);
+      //  Customer cust2 = new Customer(146, "Raj", "raj@abc.com", 9266172);
         
         System.out.println(cust1.showCustomer());
         System.out.println(cust2.showCustomer());
